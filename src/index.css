@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+#container{
+    height: 180px;
+    width: 639px;
+    margin: auto;
+}
+
+#input1{
+    margin-top: 35px;
+    width: 543px;
+    height: 54px;
+    margin-left: 6px;
+    color: black;
+    border-radius: 10px;
+}
+#input2{
+    margin-top: 0px;
+    width: 163px;
+    height: 53px;
+}
+#button{
+    height: 56px;
+    width: 75px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 30px;
+
+}
+#container2{
+
+display: flex;
+align-items: center;
+}
+
+
+#container2 h3{
+    margin-left: 57px;
+
+}
