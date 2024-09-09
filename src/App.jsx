@@ -1,4 +1,4 @@
-import { useCallback, useState,useEffect} from 'react'
+import { useCallback, useState,useEffect, useRef} from 'react'
 
 
 
@@ -22,6 +22,7 @@ if(character) string += "!,.//*-!@#$%^&*()_+=?><|:|';"
 for (let index = 0; index < length; index++) {
   const char= Math.floor(Math.random()*string.length+1)
    pass+= string.charAt(char)
+  //  console.log(pass)
 
 }
                                          
@@ -32,11 +33,27 @@ setpassword(pass)
 
 
 
-  },[setnumber,setcharacter,setlength])
+  },[number,character,length])
 
 
 
 useEffect(()=>{pass_generator()},[setnumber,setcharacter,setlength,pass_generator])
+
+const password_opti= useRef(null)
+
+
+
+const copy_password= useCallback(()=>{
+
+window.navigator.clipboard.writeText(password)
+password_opti.current?.select()
+
+},[password])
+
+
+
+
+
 
   return (
     <>
@@ -46,10 +63,10 @@ useEffect(()=>{pass_generator()},[setnumber,setcharacter,setlength,pass_generato
     <div id="container" className='border 2px white rounded-xl '>
       
       
-    <input id='input1' type="text"  placeholder='Password' value={password} readOnly />
+    <input id='input1' type="text"  placeholder='Password' value={password} readOnly ref={password_opti} />
 
 
-    <button id="button" className='text-white bg-blue-600 hover:bg-blue-400'   >copy</button>
+    <button id="button" className='text-white bg-blue-600 hover:bg-blue-400' onClick={copy_password}  >copy</button>
 
 
 <div id="container2">
